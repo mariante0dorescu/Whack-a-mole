@@ -134,12 +134,12 @@ function getSavedScores() {
     </tr>
   `
   let rows = userScores.length > 5 ? 5 : userScores.length;
-
+  let topScores = userScores.sort((a,b) => b.points - a.points);
   for(let i = 0; i < rows; i++){
     html += `<tr>
-      <td>${formatDate(userScores[i].date)}</td>
-      <td>${userScores[i].points}</td>
-      <td>${userScores[i].level}</td>
+      <td>${formatDate(topScores[i].date)}</td>
+      <td>${topScores[i].points}</td>
+      <td>${topScores[i].level}</td>
       `
   }
   html += "</table>"
